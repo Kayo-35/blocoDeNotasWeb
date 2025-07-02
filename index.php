@@ -12,6 +12,10 @@ $db = new Database(
     $env['database']['password']
 );
 $db->connect();
-$resultados = $db->exec("select * from posts;")->fetchAll();
-varStats($resultados);
+
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $resultados = $db->exec("select * from posts where id = ? ;",[$id])->fetch();
+    print_r($resultados);
+}
 ?>

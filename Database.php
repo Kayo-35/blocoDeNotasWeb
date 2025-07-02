@@ -33,9 +33,9 @@ class Database {
         $pdo = new PDO($string,$this->user,$this->password,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
         $this->conn = $pdo;
     }
-    public function exec($query) {
+    public function exec($query,$params = []) {
         $cmd = $this->conn->prepare($query);
-        $cmd->execute();
+        $cmd->execute($params);
 
         return($cmd);
     }
