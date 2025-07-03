@@ -14,7 +14,7 @@ $nome = "Anotações";
 
 //Gerando dinâmicamente conteúdo das anotações
 $codigo = 3;
-$notas = $db->exec('select id_user,body from notas where id_user = :id',['id' => $codigo])->fetchAll();
+$notas = $db->exec('select id_nota,body from notas where id_user = :id',['id' => $codigo])->fetchAll();
 $user = $db->exec('select name from usuario where id_user = :id',['id' => $codigo])->fetch();
 
 require "views/notas.view.php";

@@ -11,6 +11,6 @@ $db = new Database(
 
 $db->connect();
 $cod = $_GET['id'];
-$lista = $db->exec('select * from notas where id_user = :id',['id' => $cod]);
+$lista = $db->exec('select * from notas where id_nota = :id',['id' => $cod])->fetch();
 require("views/exibir.view.php");
 ?>

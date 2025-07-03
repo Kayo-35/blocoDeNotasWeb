@@ -19,7 +19,7 @@
                     <a class="nav-link <?= (isUrl("/contact")) ? "active" : "" ?>" href="/contact">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= (isUrl("/donation")) ? "active" : "" ?>" href="./donations.php">Doações</a>
+                    <a class="nav-link <?= (isUrl("/donation")) ? "active" : "" ?>" href="/donations.php">Doações</a>
                 </li>
             </ul>
         </div>
