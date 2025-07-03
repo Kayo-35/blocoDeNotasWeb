@@ -11,6 +11,7 @@ $db = new Database(
 
 $db->connect();
 $cod = $_GET['id'];
-$lista = $db->exec('select * from notas where id_nota = :id',['id' => $cod])->fetch();
+$bloco = 'select id_nota,id_user,body,DATE_FORMAT(dt_nota,"%d/%m/%Y") as dt_nota from notas where id_nota =';
+$lista = $db->exec($bloco.' :id',['id' => $cod])->fetch();
 require("views/exibir.view.php");
 ?>
