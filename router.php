@@ -5,6 +5,7 @@ $routes = [
     "/" => "controllers/home.php",
     "/about" => "controllers/about.php",
     "/contact" => "controllers/about.php",
+    "/notas" => "controllers/notas.php",
     "/error" => "controllers/error.php"
 ];
 
@@ -17,10 +18,5 @@ function routing($url,$routes) {
     }
 }
 
-function abort($code,$routes) {
-    http_response_code($code);
-    require($routes["/error"]);
-    die();
-}
 routing($url,$routes);
 ?>

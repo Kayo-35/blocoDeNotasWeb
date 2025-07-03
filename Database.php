@@ -29,8 +29,8 @@ class Database {
         ];
 
         //A função abaixo tem como objetivo construir a lista triade: propriedade:valor;
-        $string = 'mysql:' . http_build_query($param,'',';');
-        $pdo = new PDO($string,$this->user,$this->password,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        $dsn = 'mysql:' . http_build_query($param,'',';');
+        $pdo = new PDO($dsn,$this->user,$this->password,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
         $this->conn = $pdo;
     }
     public function exec($query,$params = []) {

@@ -1,7 +1,5 @@
 <?php
 require("env.php"); //Configurações de ambiente
-require("functions.php"); //Arquivo contem funções básicas para operar certos recursos
-require("Database.php"); //Conexão a base de dados
 
 $db = new Database(
     $env['database']['host'],
@@ -10,6 +8,8 @@ $db = new Database(
     $env['database']['port'],
     $env['database']['password']
 );
+
 $db->connect();
-require("router.php"); //Roteamento da aplicação
+$nome = "Anotações";
+require "views/notas.view.php";
 ?>

@@ -10,6 +10,9 @@
                     <a class="nav-link <?= (isUrl("/")) || array_key_exists($url,$routes) === false ? "active" : "" ?>" href="/">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?= (isUrl("/notas")) ? "active" : "" ?>" href="/notas">Anotações</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link <?= (isUrl("/about")) ? "active" : "" ?>" href="/about">About</a>
                 </li>
                 <li class="nav-item">
