@@ -12,4 +12,9 @@ function varStats($item) {
     die();
 }
 
+function authorize($condition,$status = Response::FORBIDDEN,$mensagem) {
+    if($condition === false) {
+        abort($status,ROUTES,$mensagem);
+    }
+}
 ?>

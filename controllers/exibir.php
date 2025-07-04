@@ -14,10 +14,7 @@ $cod = $_GET['id'];
 $bloco = 'select id_user,body,DATE_FORMAT(dt_nota,"%d/%m/%Y") as dt_nota from notas where id_nota =';
 $lista = $db->exec($bloco.' :id',['id' => $cod])->findOrAbort();
 
-if($lista['id_user'] !== $_SESSION['userCode']) {
-    $mensagem = "Acesso não autorizado!";
-    abort(Response::FORBIDDEN,ROUTES,$mensagem);
-}
+authorize($lista['id_user'] === $_SESSION['userCode'],Response::FORBIDDEN,"Acesso não autorizado");
 
 require("views/exibir.view.php");
 ?>
