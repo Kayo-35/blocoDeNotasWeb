@@ -32,9 +32,7 @@ class Database {
         //A função abaixo tem como objetivo construir a lista triade: propriedade:valor;
         $dsn = 'mysql:' . http_build_query($param,'',';');
         $pdo = new PDO($dsn,$this->user,$this->password,[
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false, // Garante que prepared statements sejam nativas
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Garante que o PDO lance exceções em caso de erros
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
         $this->conn = $pdo;
     }
