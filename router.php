@@ -1,4 +1,5 @@
 <?php
+global $url;
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
@@ -7,7 +8,8 @@ $routes = [
     "/contact" => "controllers/about.php",
     "/notas" => "controllers/painelNotas.php",
     "/exibir" => "controllers/exibir.php",
-    "/error" => "controllers/error.php"
+    "/error" => "controllers/error.php",
+    "/ops" => "controllers/ops.php"
 ];
 
 function routing($url,$routes) {

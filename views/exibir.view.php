@@ -10,7 +10,7 @@ require("views/partials/nav.php");
     >
         <div class="card">
             <div class="card-header text-bg-dark">
-                Anotação: <?= $lista['id_nota'] ?>
+                Anotação:
             </div>
             <div class="card-body text-bg-info">
                 <h5><?= $lista['dt_nota'] ?></h5>
