@@ -9,6 +9,7 @@ class Database {
     public $port;
     public $charset = "utf8mb4";
     public $conn;
+    public $statement;
 
     //Construct
     public function __construct($host,$user,$dbName,$port,$password) {
@@ -30,13 +31,47 @@ class Database {
 
         //A função abaixo tem como objetivo construir a lista triade: propriedade:valor;
         $dsn = 'mysql:' . http_build_query($param,'',';');
-        $pdo = new PDO($dsn,$this->user,$this->password,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        $pdo = new PDO($dsn,$this->user,$this->password,[
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false, // Garante que prepared statements sejam nativas
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Garante que o PDO lance exceções em caso de erros
+        ]);
         $this->conn = $pdo;
     }
-    public function exec($query,$params = []) {
-        $cmd = $this->conn->prepare($query);
-        $cmd->execute($params);
 
-        return($cmd);
+    public function exec($query,$params = []) {
+        $this->statement = $this->conn->prepare($query);
+        $this->statement->execute($params);
+
+        return $this;
     }
+
+    public function find() {
+        return $this->statement->fetch();
+    }
+
+    public function findOrAbort() {
+        //A variável armazena as tuplas encontradas
+        $result = $this->find();
+        if(!$result) {
+            $mensagem = "Nada encontrado!";
+            abort(Response::NOT_FOUND,$routes,$mensagem);
+        }
+        return $result;
+    }
+
+    public function findAll() {
+        return $this->statement->fetchAll();
+    }
+    public function findAllOrAbort() {
+        $result = $this->findAll();
+
+        if(!result) {
+            $mensagem = "Nada encontrado!";
+            abort(Response::NOT_FOUND,$routes,$mensagem);
+        }
+
+        return $result;
+    }
+
 }
