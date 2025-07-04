@@ -2,7 +2,7 @@
 global $url;
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
+const ROUTES = [
     "/" => "controllers/home.php",
     "/about" => "controllers/about.php",
     "/contact" => "controllers/about.php",
@@ -12,14 +12,20 @@ $routes = [
     "/ops" => "controllers/ops.php"
 ];
 
-function routing($url,$routes) {
-    if(array_key_exists($url,$routes)) {
-        require($routes[$url]);
+function abort($code = 404,$set = ROUTES,$mensagem) {
+    http_response_code($code);
+    require($set['/error']);
+    die();
+}
+
+function routing($url) {
+    if(array_key_exists($url,ROUTES)) {
+        require(ROUTES[$url]);
     }
     else {
-        abort(404,$routes);
+        abort(404,'/error');
     }
 }
 
-routing($url,$routes);
+routing($url);
 ?>

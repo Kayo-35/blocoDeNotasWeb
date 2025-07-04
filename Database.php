@@ -55,7 +55,7 @@ class Database {
         $result = $this->find();
         if(!$result) {
             $mensagem = "Nada encontrado!";
-            abort(Response::NOT_FOUND,$routes,$mensagem);
+            abort(Response::NOT_FOUND,ROUTES,$mensagem);
         }
         return $result;
     }
@@ -66,9 +66,9 @@ class Database {
     public function findAllOrAbort() {
         $result = $this->findAll();
 
-        if(!result) {
+        if(!$result) {
             $mensagem = "Nada encontrado!";
-            abort(Response::NOT_FOUND,$routes,$mensagem);
+            abort(Response::NOT_FOUND,ROUTES,$mensagem);
         }
 
         return $result;

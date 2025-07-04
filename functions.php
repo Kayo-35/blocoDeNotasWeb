@@ -12,11 +12,4 @@ function varStats($item) {
     die();
 }
 
-//Exibe página de erro ao usuário
-function abort($code = 404,$routes,$mensagem) {
-    http_response_code($code);
-    require($routes["/error"]);
-    die();
-}
-
 ?>

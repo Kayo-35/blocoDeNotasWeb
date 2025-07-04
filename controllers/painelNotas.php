@@ -16,7 +16,7 @@ $nome = "Anotações";
 session_start();
 $_SESSION['userCode'] = 3;
 
-$notas = $db->exec('select id_nota,body from notas where id_user = :id',['id' => $_SESSION['userCode']])->findAll();
+$notas = $db->exec('select id_nota,body from notas where id_user = :id',['id' => $_SESSION['userCode']])->findAllOrAbort();
 $user = $db->exec('select name from usuario where id_user = :id',['id' => $_SESSION['userCode']])->findOrAbort();
 
 require "views/notas.view.php";

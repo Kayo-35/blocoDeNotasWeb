@@ -16,7 +16,7 @@ $lista = $db->exec($bloco.' :id',['id' => $cod])->findOrAbort();
 
 if($lista['id_user'] !== $_SESSION['userCode']) {
     $mensagem = "Acesso não autorizado!";
-    abort(Response::FORBIDDEN,$routes,$mensagem);
+    abort(Response::FORBIDDEN,ROUTES,$mensagem);
 }
 
 require("views/exibir.view.php");

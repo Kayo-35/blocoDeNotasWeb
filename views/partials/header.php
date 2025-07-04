@@ -8,4 +8,4 @@
         <title><?= $nome ?></title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
     </head>
-    <body class = <?=(array_key_exists($url,$routes) === false) ? " 'bg-dark'" : "bg-secondary";?> >
+    <body class = <?=(array_key_exists($url,ROUTES) === false) ? " 'bg-dark'" : "bg-secondary";?> >
