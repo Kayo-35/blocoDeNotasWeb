@@ -3,13 +3,14 @@ global $url;
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 const ROUTES = [
-    "/" => "controllers/home.php",
+    "/" => "controllers/home.php", //Home page
     "/about" => "controllers/about.php",
     "/contact" => "controllers/about.php",
-    "/notas" => "controllers/painelNotas.php",
-    "/exibir" => "controllers/exibir.php",
-    "/error" => "controllers/error.php",
-    "/ops" => "controllers/ops.php"
+    "/notas" => "controllers/painelNotas.php", //Painel de Notas
+    "/notas/criar-nota" => "controllers/criaNotas.php", //Controla criação de notas
+    "/exibir" => "controllers/exibir.php", //Exibir uma nota única
+    "/error" => "controllers/error.php", //Tratamento de erros
+    "/confirmar" => "controllers/confirmar.php"
 ];
 
 function abort($code = 404,$set = ROUTES,$mensagem) {

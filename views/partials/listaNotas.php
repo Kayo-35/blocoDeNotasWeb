@@ -3,7 +3,7 @@
         <?php foreach($notas as $nt) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <span class="text-dark">
-                    <?= $nt['body'] ?>
+                    <?= htmlspecialchars($nt['body']) ?>
                 </span>
                 <a href="/exibir?id=<?= $nt['id_nota'] ?>">
                     <img class="img-fluid" src="resources/img/eye.svg">

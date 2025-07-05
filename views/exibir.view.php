@@ -15,7 +15,7 @@ require("views/partials/nav.php");
             <div class="card-body text-bg-info">
                 <h5><?= $lista['dt_nota'] ?></h5>
                 <p>
-                    <?= $lista['body'] ?>
+                    <?= htmlspecialchars($lista['body']) ?>
                 </p>
             </div>
         </div>

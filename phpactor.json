@@ -1,0 +1,12 @@
+{
+  "phpactor.project_root": ".",
+  "phpactor.paths": [
+      "controllers/*",
+      "views/*",
+      "./*"
+  ],
+  "phpactor.indexer.enabled": true,
+  "phpactor.indexer.exclude_patterns": [
+      "resources/*"
+  ]
+}
