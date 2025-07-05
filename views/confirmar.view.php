@@ -11,4 +11,7 @@
         </div>
     </div>
 </div>
-<?php require("partials/footer.php")?>
+<?php
+require("partials/footer.php");
+die();
+?>

@@ -7,10 +7,17 @@ require("views/partials/nav.php");
     <form class="container w-50" method="POST">
         <div class="input-group">
             <label class="input-group-text bg-info" for="body">Anotação</label>
-            <textarea id="body" name="body" class="bg-dark text-light form-control" placeholder="Libere sua criatividade..." required></textarea>
+            <textarea id="body" name="body" class="bg-dark text-light form-control" placeholder="Libere sua criatividade...">
+                <?= isset($_POST['body']) ? $_POST['body'] : '' ;?>
+            </textarea>
         </div>
-                <div class="d-flex justify-content-end">
-            <button class="btn btn-info mt-2" type="submit">Criar</button>
+        <!--Trecho incluso para exibição de erros validatórios-->
+        <?php if(isset($erros)) : ?>
+            <p class="text-danger-emphasis fst-italic fs-6 mt-2"><?=$erros['body']?></p>
+        <?php endif; ?>
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-info mt-1" type="submit">Criar</button>
         </div>
     </form>
 </div>
