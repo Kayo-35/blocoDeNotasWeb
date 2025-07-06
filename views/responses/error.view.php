@@ -1,4 +1,4 @@
-<?php require ("partials/header.php")?>
+<?php require ("views/partials/header.php")?>
 <!--Página para indicar erros!-->
 <div class="d-flex mt-5 justify-content-center">
     <div class="card bg-danger text-white text-center p-4 w-25">
@@ -10,4 +10,4 @@
         </div>
     </div>
 </div>
-<?php require("partials/footer.php")?>
+<?php require("views/partials/footer.php")?>

@@ -16,5 +16,5 @@ $lista = $db->exec($bloco.' :id',['id' => $cod])->findOrAbort();
 
 authorize($lista['id_user'] === $_SESSION['userCode'],Response::FORBIDDEN,"Acesso não autorizado");
 
-require("views/exibir.view.php");
+require("views/notes/show.view.php");
 ?>

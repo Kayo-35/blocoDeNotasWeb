@@ -29,4 +29,4 @@ require("views/partials/nav.php");
         </div>
     </form>
 </div>
-<?php require("views/footer.php"); ?>
+<?php require("views/partials/footer.php"); ?>

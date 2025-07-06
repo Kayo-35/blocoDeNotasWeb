@@ -34,13 +34,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         [
             'id_user' => $_SESSION['userCode'],
             'title' => $_POST['title'],
-            'body' => $_POST['body'],
+            'body' => trim($_POST['body']), //trim impede blocos de espaços aleatórios
             'dt_nota' => date("Y-m-d")
         ]);
         confirmar("Nota criada com Sucesso!","/notas");
     }
-
 }
 
-require("views/criarNotas.view.php");
+require("views/notes/create.view.php");
 ?>

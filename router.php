@@ -6,11 +6,11 @@ const ROUTES = [
     "/" => "controllers/home.php", //Home page
     "/about" => "controllers/about.php",
     "/contact" => "controllers/about.php",
-    "/notas" => "controllers/painelNotas.php", //Painel de Notas
-    "/notas/criar-nota" => "controllers/criaNotas.php", //Controla criação de notas
-    "/exibir" => "controllers/exibir.php", //Exibir uma nota única
-    "/error" => "controllers/error.php", //Tratamento de erros
-    "/confirmar" => "controllers/confirmar.php"
+    "/notas" => "controllers/notes/index.php", //Painel de Notas
+    "/exibir" => "controllers/notes/show.php", //Exibir uma nota única
+    "/notas/criar-nota" => "controllers/notes/create.php", //Controla criação de notas
+    "/error" => "controllers/responses/error.php", //Tratamento de erros
+    "/confirmar" => "controllers/responses/confirmar.php" //Feedback positivo
 ];
 
 function abort($code = 404,$set = ROUTES,$mensagem) {

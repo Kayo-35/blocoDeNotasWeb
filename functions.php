@@ -19,7 +19,7 @@ function authorize($condition,$status = Response::FORBIDDEN,$mensagem) {
 }
 
 function confirmar($titulo = 'Ação bem sucedida!',$path) {
-    require('controllers/confirmar.php');
+    require('controllers/responses/confirmar.php');
     die();
 }
 ?>

@@ -13,10 +13,10 @@ $nome = "Anotações";
 
 //Gerando dinâmicamente conteúdo das anotações
 session_start();
-$_SESSION['userCode'] = 1;
+$_SESSION['userCode'] = 2;
 
 $notas = $db->exec('select id_nota,title,SUBSTRING_INDEX(body," ",6) as body from notas where id_user = :id order by dt_nota desc;',['id' => $_SESSION['userCode']])->findAllOrAbort();
 $user = $db->exec('select name from usuario where id_user = :id',['id' => $_SESSION['userCode']])->findOrAbort();
 
-require "views/notas.view.php";
+require "views/notes/index.view.php";
 ?>
