@@ -1,4 +1,7 @@
-<?php require ("views/partials/header.php")?>
+<?php
+extract($params);
+require path("views/partials/header.php");
+?>
 <!--Página para indicar erros!-->
 <div class="d-flex mt-5 justify-content-center">
     <div class="card bg-danger text-white text-center p-4 w-25">
@@ -10,4 +13,4 @@
         </div>
     </div>
 </div>
-<?php require("views/partials/footer.php")?>
+<?php require path('views/partials/footer.php')?>

@@ -1,4 +1,5 @@
 <?php
+    extract($params);
     require("partials/header.php");
     require("partials/nav.php");
 ?>

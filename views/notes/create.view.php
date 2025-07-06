@@ -1,6 +1,7 @@
 <?php
-require("views/partials/header.php");
-require("views/partials/nav.php");
+extract($params);
+require(path("views/partials/header.php"));
+require(path("views/partials/nav.php"));
 ?>
 <h1 class="text-center mt-5 display-block">Escreva sua nota!</h1>
 <div class="d-flex justify-content-center align-items-center mt-2">
@@ -29,4 +30,4 @@ require("views/partials/nav.php");
         </div>
     </form>
 </div>
-<?php require("views/partials/footer.php"); ?>
+<?php require(path("views/partials/footer.php")); ?>

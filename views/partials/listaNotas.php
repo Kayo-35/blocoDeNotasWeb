@@ -9,7 +9,7 @@
                     </span>
                 </div>
                 <a href="/exibir?id=<?= $nt['id_nota'] ?>">
-                    <img class="img-fluid" src="<?= path(ROOT_DIR,'resources/img/eye.svg');?>">
+                    <img class="img-fluid" src="resources/img/eye.svg">
                 </a>
             </li>
         <?php endforeach; ?>

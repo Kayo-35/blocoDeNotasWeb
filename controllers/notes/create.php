@@ -1,9 +1,9 @@
 <?php
-require path(ROOT_DIR,"env.php"); //Configurações de ambiente
+require path("env.php"); //Configurações de ambiente
 $nome = "Escreva suas anotações";
 //Processando formulário
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require('Validator.php');
+    require(path('Validator.php'));
     session_start();
     $db = new Database(
         $env['database']['host'],
@@ -41,5 +41,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require("views/notes/create.view.php");
+view("notes/create.view",
+[
+    'url' => $url
+]
+);
 ?>

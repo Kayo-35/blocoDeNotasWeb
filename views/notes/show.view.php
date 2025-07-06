@@ -1,6 +1,7 @@
 <?php
-require("views/partials/header.php");
-require("views/partials/nav.php");
+extract($params);
+require(path("views/partials/header.php"));
+require(path("views/partials/nav.php"));
 ?>
 <div class="d-flex justify-content-center row mt-5">
     <div class="
@@ -24,4 +25,4 @@ require("views/partials/nav.php");
 <div class="d-flex justify-content-center mt-3">
     <a href="/notas" class="btn btn-info">Voltar</a>
 </div>
-<?php require("views/partials/footer.php")?>
+<?php require(path("views/partials/footer.php"))?>

@@ -23,7 +23,13 @@ function confirmar($titulo = 'Ação bem sucedida!',$path) {
     die();
 }
 
-function path($root,$sufix) {
-    return $root.$sufix;
+function path($sufix) {
+    return ROOT_DIR.$sufix;
+}
+
+function view($path,$params = [
+    'nome' => 'Bloco de notas Web'
+]) {
+    require path('views/'.$path.'.php');
 }
 ?>

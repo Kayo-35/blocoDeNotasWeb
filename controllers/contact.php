@@ -1,3 +1,8 @@
 <?php
 $nome = "Contato";
-require path(ROOT_DIR,"views/contact.view.php");
+view("contact.view",
+[
+    'nome' => $nome,
+    'url' => $url
+]
+);

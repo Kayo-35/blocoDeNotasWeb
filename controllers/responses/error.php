@@ -1,3 +1,7 @@
 <?php
-require("views/responses/error.view.php");
+view("responses/error.view",[
+    'code' => $code,
+    'mensagem' => $mensagem,
+    'url' => $url
+]);
 ?>

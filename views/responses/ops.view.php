@@ -1,4 +1,7 @@
-<?php require ("partials/header.php")?>
+<?php
+extract($params);
+require ("partials/header.php")
+?>
 <!--Página para indicar ausência de conteúdo!-->
 <div class="d-flex mt-5 justify-content-center">
     <div class="card bg-dark text-white text-center p-4 w-25">

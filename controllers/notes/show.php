@@ -1,5 +1,5 @@
 <?php
-require path(ROOT_DIR,"env.php"); //Configurações de ambiente
+require path("env.php"); //Configurações de ambiente
 $db = new Database(
     $env['database']['host'],
     $env['database']['user'],
@@ -16,5 +16,10 @@ $lista = $db->exec($bloco.' :id',['id' => $cod])->findOrAbort();
 
 authorize($lista['id_user'] === $_SESSION['userCode'],Response::FORBIDDEN,"Acesso não autorizado");
 
-require("views/notes/show.view.php");
+view('notes/show.view',
+[
+    'lista' => $lista,
+    'url' => $url,
+]
+);
 ?>

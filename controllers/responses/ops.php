@@ -1,3 +1,3 @@
 <?php
-require("views/responses/ops.php");
+view("responses/ops.view");
 ?>

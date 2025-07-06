@@ -1,3 +1,8 @@
 <?php
 $nome = "About";
-require path(ROOT_DIR,"views/about.view.php");
+view("about.view",
+[
+    'nome' => $nome,
+    'url' => $url
+]
+);
