@@ -22,4 +22,8 @@ function confirmar($titulo = 'Ação bem sucedida!',$path) {
     require('controllers/responses/confirmar.php');
     die();
 }
+
+function path($root,$sufix) {
+    return $root.$sufix;
+}
 ?>

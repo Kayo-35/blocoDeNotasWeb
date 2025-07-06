@@ -1,3 +1,3 @@
 <?php
 $nome = "About";
-require("views/about.view.php");
+require path(ROOT_DIR,"views/about.view.php");

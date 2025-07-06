@@ -1,5 +1,5 @@
 <?php
-require("env.php"); //Configurações de ambiente
+require path(ROOT_DIR,"env.php"); //Configurações de ambiente
 $nome = "Escreva suas anotações";
 //Processando formulário
 if($_SERVER['REQUEST_METHOD'] === 'POST') {

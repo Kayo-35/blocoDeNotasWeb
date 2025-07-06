@@ -1,3 +1,3 @@
 <?php
 $nome = "Contato";
-require("views/contact.view.php");
+require path(ROOT_DIR,"views/contact.view.php");

@@ -1,5 +1,5 @@
 <?php
-require("env.php"); //Configurações de ambiente
+require path(ROOT_DIR,"env.php"); //Configurações de ambiente
 $db = new Database(
     $env['database']['host'],
     $env['database']['user'],

@@ -1,9 +1,7 @@
 {
   "phpactor.project_root": ".",
   "phpactor.paths": [
-      "controllers/*",
-      "views/*",
-      "./*"
+      "**/*.php"
   ],
   "phpactor.indexer.enabled": true,
   "phpactor.indexer.exclude_patterns": [
