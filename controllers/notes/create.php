@@ -43,7 +43,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 view("notes/create.view",
 [
-    'url' => $url
+    'url' => $url,
+    'erros' => isset($erros) ? $erros : [],
 ]
 );
 ?>

@@ -12,7 +12,7 @@ require(path("views/partials/nav.php"));
         </div>
         <!-- Validação título -->
         <?php if(isset($erros['title'])) : ?>
-            <p class="text-danger-emphasis fst-italic fs-6 mt-2"><?=$erros['title']?></p>
+            <p class="text-danger-emphasis fst-italic fs-6 mt-2"><?=htmlspecialchars($erros['title'])?></p>
         <?php endif; ?>
         <div class="input-group">
             <label class="input-group-text bg-info" for="body">Anotação</label>
@@ -22,7 +22,7 @@ require(path("views/partials/nav.php"));
         </div>
         <!--Trecho incluso para exibição de erros validatórios-->
         <?php if(isset($erros['body'])) : ?>
-            <p class="text-danger-emphasis fst-italic fs-6 mt-2"><?=$erros['body']?></p>
+            <p class="text-danger-emphasis fst-italic fs-6 mt-2"><?=htmlspecialchars($erros['body'])?></p>
         <?php endif; ?>
 
         <div class="d-flex justify-content-end">
