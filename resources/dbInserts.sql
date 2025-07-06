@@ -1,49 +1,44 @@
--- Inserções em lote para a tabela 'usuario'
+-- Inserção de usuários
 INSERT INTO usuario (name, email) VALUES
-('Alice Silva', 'alice.silva@example.com'),
-('Bruno Costa', 'bruno.costa@example.com'),
-('Carla Oliveira', 'carla.oliveira@example.com');
+('João Silva', 'joao.silva@example.com'),
+('Maria Souza', 'maria.souza@example.com'),
+('Pedro Almeida', 'pedro.almeida@example.com');
 
--- Inserções em lote para a tabela 'notas'
+-- Inserção de anotações para o usuário 1 (João Silva)
+INSERT INTO notas (id_user, title, body, dt_nota) VALUES
+(1, 'Lembrete de Reunião', 'Não esquecer da reunião de equipe às 10h na sala principal.', '2025-01-15'),
+(1, 'Ideias para Projeto X', 'Brainstorming inicial para o projeto X: funcionalidade A, B, C.', '2025-01-16'),
+(1, 'Lista de Compras', 'Leite, pão, ovos, frutas, café.', '2025-01-17'),
+(1, 'Acompanhamento Cliente Alfa', 'Verificar o status do projeto com o cliente Alfa até o final do dia.', '2025-01-18'),
+(1, 'Planejamento de Férias', 'Pesquisar destinos de praia para as férias de julho.', '2025-01-19'),
+(1, 'Estudar SQL', 'Revisar conceitos de JOINs e subqueries para a prova.', '2025-01-20'),
+(1, 'Manutenção do Carro', 'Agendar a revisão anual do carro na concessionária.', '2025-01-21'),
+(1, 'Feedback Reunião de Vendas', 'Pontos positivos e negativos da última reunião de vendas.', '2025-01-22'),
+(1, 'Artigo para Blog', 'Esboçar o tópico e os pontos chave para o próximo artigo do blog.', '2025-01-23'),
+(1, 'Pagar Contas', 'Contas de água, luz e internet com vencimento esta semana.', '2025-01-24');
 
--- Notas para Alice Silva (id_user = 1)
-INSERT INTO notas (id_user, body, dt_nota) VALUES
-(1, 'Lembrete: Comprar pão e leite para o café da manhã.', '2024-01-15'),
-(1, 'Ideias para o projeto X: Pesquisar sobre inteligência artificial e machine learning.', '2024-01-16'),
-(1, 'Reunião com a equipe às 10h na sala de conferências.', '2024-01-17'),
-(1, 'Lista de compras: Arroz, feijão, carne, legumes e frutas.', '2024-01-18'),
-(1, 'Anotações da aula de história: Revolução Francesa e seus impactos.', '2024-01-19'),
-(1, 'Planejar viagem de férias para o litoral em julho.', '2024-01-20'),
-(1, 'Exercícios físicos: 30 minutos de caminhada e 15 minutos de alongamento.', '2024-01-21'),
-(1, 'Receita nova: Bolo de cenoura com cobertura de chocolate.', '2024-01-22'),
-(1, 'Ligar para o encanador para consertar o vazamento na pia.', '2024-01-23'),
-(1, 'Estudar para a prova de matemática na próxima semana.', '2024-01-24');
+-- Inserção de anotações para o usuário 2 (Maria Souza)
+INSERT INTO notas (id_user, title, body, dt_nota) VALUES
+(2, 'Agendar Consulta Médica', 'Marcar consulta com o cardiologista para revisão anual.', '2025-01-15'),
+(2, 'Livro para Ler', 'Iniciar a leitura de "A Arte da Guerra" de Sun Tzu.', '2025-01-16'),
+(2, 'Receita Nova', 'Testar a receita de bolo de cenoura com cobertura de chocolate.', '2025-01-17'),
+(2, 'Exercícios Físicos', 'Plano de treino para a semana: 3x musculação, 2x corrida.', '2025-01-18'),
+(2, 'Workshop de Fotografia', 'Confirmar inscrição no workshop de fotografia de paisagem.', '2025-01-19'),
+(2, 'Organizar Armário', 'Separar roupas para doação e organizar o armário.', '2025-01-20'),
+(2, 'Revisar TCC', 'Ler e revisar o trabalho de conclusão de curso.', '2025-01-21'),
+(2, 'Presente de Aniversário', 'Comprar presente para o aniversário da Ana.', '2025-01-22'),
+(2, 'Curso Online', 'Avançar nos módulos do curso online de Python.', '2025-01-23'),
+(2, 'Plantar Flores', 'Comprar sementes e plantar novas flores no jardim.', '2025-01-24');
 
--- Notas para Bruno Costa (id_user = 2)
-INSERT INTO notas (id_user, body, dt_nota) VALUES
-(2, 'Tarefa pendente: Finalizar relatório financeiro até sexta-feira.', '2024-02-01'),
-(2, 'Pesquisar sobre novas tecnologias para desenvolvimento web.', '2024-02-02'),
-(2, 'Agendar consulta com o dentista para revisão anual.', '2024-02-03'),
-(2, 'Ideias para o blog: Artigo sobre produtividade e gestão de tempo.', '2024-02-04'),
-(2, 'Comprar presente de aniversário para a mãe.', '2024-02-05'),
-(2, 'Assistir ao webinar sobre marketing digital.', '2024-02-06'),
-(2, 'Revisar código do módulo de autenticação.', '2024-02-07'),
-(2, 'Planejar o churrasco do fim de semana com os amigos.', '2024-02-08'),
-(2, 'Aprender sobre a nova versão do framework JavaScript.', '2024-02-09'),
-(2, 'Verificar as atualizações de segurança do sistema.', '2024-02-10'),
-(2, 'Organizar a pasta de documentos no computador.', '2024-02-11');
-
--- Notas para Carla Oliveira (id_user = 3)
-INSERT INTO notas (id_user, body, dt_nota) VALUES
-(3, 'Preparar apresentação para a reunião de segunda-feira.', '2024-03-01'),
-(3, 'Ler o livro "O Poder do Hábito" para o clube do livro.', '2024-03-02'),
-(3, 'Comprar passagens aéreas para a conferência em São Paulo.', '2024-03-03'),
-(3, 'Ideias para o novo design do site: Cores, fontes e layout.', '2024-03-04'),
-(3, 'Fazer a matrícula na academia de ginástica.', '2024-03-05'),
-(3, 'Pesquisar sobre cursos de fotografia online.', '2024-03-06'),
-(3, 'Enviar e-mail de acompanhamento para o cliente X.', '2024-03-07'),
-(3, 'Visitar a exposição de arte no museu.', '2024-03-08'),
-(3, 'Planejar o cardápio da semana para uma alimentação saudável.', '2024-03-09'),
-(3, 'Revisar o contrato com o fornecedor.', '2024-03-10'),
-(3, 'Comprar material de escritório: Canetas, cadernos e post-its.', '2024-03-11'),
-(3, 'Organizar o guarda-roupa e doar roupas antigas.', '2024-03-12');
+-- Inserção de anotações para o usuário 3 (Pedro Almeida)
+INSERT INTO notas (id_user, title, body, dt_nota) VALUES
+(3, 'Reunião com Fornecedor', 'Preparar pauta para a reunião com o novo fornecedor X.', '2025-01-15'),
+(3, 'Orçamento Anual', 'Finalizar a revisão do orçamento anual da empresa.', '2025-01-16'),
+(3, 'Contratar Estagiário', 'Revisar currículos e agendar entrevistas para a vaga de estagiário.', '2025-01-17'),
+(3, 'Viagem a Negócios', 'Confirmar voos e hotel para a viagem de negócios a São Paulo.', '2025-01-18'),
+(3, 'Atualizar Software', 'Instalar a última versão do software de gestão.', '2025-01-19'),
+(3, 'Análise de Mercado', 'Pesquisar tendências de mercado para o próximo trimestre.', '2025-01-20'),
+(3, 'Jantar com Clientes', 'Reservar mesa para o jantar com os clientes Y e Z.', '2025-01-21'),
+(3, 'Relatório Mensal', 'Compilar dados para o relatório mensal de desempenho.', '2025-01-22'),
+(3, 'Treinamento Equipe', 'Preparar material para o treinamento da nova equipe de vendas.', '2025-01-23'),
+(3, 'Reunião de Diretoria', 'Organizar a apresentação para a próxima reunião de diretoria.', '2025-01-24');

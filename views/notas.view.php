@@ -3,7 +3,7 @@ require("views/partials/header.php");
 require("views/partials/nav.php");
 ?>
 
-<div class="container mt-5 w-100 w-sm-50">
+<div class="container mt-3 w-100 w-sm-50">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <h1>Anotações</h1>

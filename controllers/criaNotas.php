@@ -16,15 +16,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Validação dos dados submetidos
     $erros = [];
-
+    //Titulo
+    if(Validator::title($_POST['title'],50) === null) {
+        $_POST['title'] = 'Sem título';
+    }
+    else if(Validator::title($_POST['title'],50) === false) {
+        $erros['title'] = "Título ultrapassa a quantidade limite de caracteres!";
+    }
+    //Corpo
     if(!Validator::string($_POST['body'],1,4000)) {
         $erros['body'] = "Anotações devem ter entre 1 e 4000 caracteres!";
     }
 
     if(empty($erros)) {
-        $query = "INSERT INTO notas (id_user,body,dt_nota) VALUES (:id_user,:body,:dt_nota);";
-        $db->exec($query,[
+        $query = "INSERT INTO notas (id_user,title,body,dt_nota) VALUES (:id_user,:title,:body,:dt_nota);";
+        $db->exec($query,
+        [
             'id_user' => $_SESSION['userCode'],
+            'title' => $_POST['title'],
             'body' => $_POST['body'],
             'dt_nota' => date("Y-m-d")
         ]);
