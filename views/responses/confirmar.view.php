@@ -1,4 +1,7 @@
-<?php require ("views/partials/header.php") ?>
+<?php
+extract($params);
+require path('views/partials/header.php');
+?>
 <!--Página para indicar confirmação de solicitcações bem sucedidas!-->
 <div class="d-flex mt-5 justify-content-center">
     <div class="card bg-success text-white text-center p-4 w-25">
@@ -12,6 +15,6 @@
     </div>
 </div>
 <?php
-require("views/partials/footer.php");
+require path('views/partials/footer.php');
 die();
 ?>

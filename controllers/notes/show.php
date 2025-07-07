@@ -1,4 +1,6 @@
 <?php
+use Base\Database;
+use Base\Response;
 require path("env.php"); //Configurações de ambiente
 $db = new Database(
     $env['database']['host'],

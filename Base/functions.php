@@ -1,4 +1,5 @@
 <?php
+use Base\Response;
 //Verificar se o caminho requisitado em urls é o mesmo presente como título de paginas
 function isUrl($value) {
     return $_SERVER['REQUEST_URI'] === $value;
@@ -19,7 +20,8 @@ function authorize($condition,$status = Response::FORBIDDEN,$mensagem) {
 }
 
 function confirmar($titulo = 'Ação bem sucedida!',$path) {
-    require('controllers/responses/confirmar.php');
+    require('../controllers/responses/confirmar.php');
+    varStats($titulo);
     die();
 }
 
@@ -27,9 +29,8 @@ function path($sufix) {
     return ROOT_DIR.$sufix;
 }
 
-function view($path,$params = [
-    'nome' => 'Bloco de notas Web'
-]) {
+function view($path,$params = [ 'nome' => 'Bloco de notas Web' ])
+{
     require path('views/'.$path.'.php');
 }
 ?>

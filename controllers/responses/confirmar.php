@@ -1,3 +1,6 @@
 <?php
-require("views/responses/confirmar.view.php");
+view('responses/confirmar.view',[
+    'titulo' => $titulo,
+    'path' => $path
+]);
 ?>

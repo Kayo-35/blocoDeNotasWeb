@@ -1,8 +1,19 @@
 <?php
-require("../functions.php");
+require("../Base/functions.php");
 const ROOT_DIR = __DIR__.'/../';
 
-require(path('Response.php')); //Responstas a requsições especificas
-require(path('Database.php')); //Classe
-require(path('router.php')); //Roteamento da aplicação
+//Função responsável pelo autoload de classes
+spl_autoload_register(function ($class) {
+    $class = str_replace('\\',DIRECTORY_SEPARATOR,$class);
+    $classPath = path("$class.php");
+
+    if(file_exists($classPath)) {
+        require path("$class.php");
+    }
+    else {
+        abort(404,ROUTES,'Não encontrado');
+    }
+});
+
+require(path('Base/router.php')); //Roteamento da aplicação
 ?>

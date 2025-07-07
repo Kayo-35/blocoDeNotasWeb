@@ -1,4 +1,8 @@
 <?php
+
+namespace Base;
+
+use PDO;
 //Classe para conexão e manipulação da base de dados
 class Database {
     //Propriedades

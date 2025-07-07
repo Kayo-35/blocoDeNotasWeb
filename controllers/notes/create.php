@@ -1,9 +1,11 @@
 <?php
+use Base\Database;
+use Base\Validator;
 require path("env.php"); //Configurações de ambiente
 $nome = "Escreva suas anotações";
+
 //Processando formulário
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require(path('Validator.php'));
     session_start();
     $db = new Database(
         $env['database']['host'],
@@ -29,7 +31,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if(empty($erros)) {
-        $query = "INSERT INTO notas (id_user,title,body,dt_nota) VALUES (:id_user,:title,:body,:dt_nota);";
+        $query = "
+            INSERT INTO notas (id_user,title,body,dt_nota)
+            VALUES (:id_user,:title,:body,:dt_nota);";
         $db->exec($query,
         [
             'id_user' => $_SESSION['userCode'],
