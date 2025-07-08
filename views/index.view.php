@@ -5,8 +5,10 @@
 ?>
 
 <div class="container mt-3">
-    <h1>Pagina <?= $nome ?></h1>
-    <p>Olá Mundo</p>
+    <h1><?= $nome ?></h1>
+    <div class="d-flex justify-content-center">
+        <img class="img-fluid rounded w-75" src="/resources/img/home.jpg">
+    </div>
 </div>
 
 <?php require("partials/footer.php"); ?>
