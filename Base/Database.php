@@ -4,7 +4,8 @@ namespace Base;
 use PDO;
 
 //Classe para conexão e manipulação da base de dados
-class Database {
+class Database
+{
     //Propriedades
     public $host;
     public $user;
@@ -16,7 +17,8 @@ class Database {
     public $statement;
 
     //Construct
-    public function __construct($host,$user,$dbName,$port,$password) {
+    public function __construct($host, $user, $dbName, $port, $password)
+    {
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;
@@ -25,7 +27,8 @@ class Database {
     }
 
     //Metodos
-    public function connect(): void {
+    public function connect(): void
+    {
         $param = [
             "host" => $this->host,
             "dbname" => $this->dbName,
@@ -34,44 +37,48 @@ class Database {
         ];
 
         //A função abaixo tem como objetivo construir a lista triade: propriedade:valor;
-        $dsn = 'mysql:' . http_build_query($param,'',';');
-        $pdo = new PDO($dsn,$this->user,$this->password,[
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        $dsn = "mysql:" . http_build_query($param, "", ";");
+        $pdo = new PDO($dsn, $this->user, $this->password, [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]);
         $this->conn = $pdo;
     }
-    public function exec($query,$params = []) {
+    public function exec($query, $params = [])
+    {
         $this->statement = $this->conn->prepare($query);
         $this->statement->execute($params);
         return $this;
     }
 
-    public function find() {
+    public function find()
+    {
         return $this->statement->fetch();
     }
 
-    public function findOrAbort() {
+    public function findOrAbort()
+    {
         //A variável armazena as tuplas encontradas
         $result = $this->find();
-        if(!$result) {
+        if (!$result) {
             $mensagem = "Nada encontrado!";
-            abort(Response::NOT_FOUND,ROUTES,$mensagem);
+            abort(Response::NOT_FOUND, $mensagem);
         }
         return $result;
     }
 
-    public function findAll() {
+    public function findAll()
+    {
         return $this->statement->fetchAll();
     }
-    public function findAllOrAbort() {
+    public function findAllOrAbort()
+    {
         $result = $this->findAll();
 
-        if(!$result) {
+        if (!$result) {
             $mensagem = "Nada encontrado!";
-            abort(Response::NOT_FOUND,ROUTES,$mensagem);
+            abort(Response::NOT_FOUND, $mensagem);
         }
 
         return $result;
     }
-
 }

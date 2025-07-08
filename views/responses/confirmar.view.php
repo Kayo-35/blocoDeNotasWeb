@@ -1,6 +1,6 @@
 <?php
 extract($params);
-require path('views/partials/header.php');
+require path("views/partials/header.php");
 ?>
 <!--Página para indicar confirmação de solicitcações bem sucedidas!-->
 <div class="d-flex mt-5 justify-content-center">
@@ -15,6 +15,8 @@ require path('views/partials/header.php');
     </div>
 </div>
 <?php
-require path('views/partials/footer.php');
+require path("views/partials/footer.php");
 die();
+
+
 ?>

@@ -1,7 +1,7 @@
 <?php
 extract($params);
-require(path("views/partials/header.php"));
-require(path("views/partials/nav.php"));
+require path("views/partials/header.php");
+require path("views/partials/nav.php");
 ?>
 <div class="d-flex justify-content-center row mt-5">
     <div class="
@@ -14,14 +14,16 @@ require(path("views/partials/nav.php"));
                 <span>Anotação:</span>
                 <form method="POST">
                     <input type="hidden" name="_method" value="delete">
-                    <input type="hidden" name="id_nota" value="<?= $lista['id_nota'] ?>">
+                    <input type="hidden" name="id_nota" value="<?= $lista[
+                        "id_nota"
+                    ] ?>">
                     <button class="btn btn-outline-danger btn-sm">DELETAR</button>
                 </form>
             </div>
             <div class="card-body text-bg-info">
-                <h5><?= $lista['dt_nota'] ?></h5>
+                <h5><?= $lista["dt_nota"] ?></h5>
                 <p>
-                    <?= htmlspecialchars($lista['body']) ?>
+                    <?= htmlspecialchars($lista["body"]) ?>
                 </p>
             </div>
         </div>
@@ -30,4 +32,4 @@ require(path("views/partials/nav.php"));
 <div class="d-flex justify-content-center mt-3">
     <a href="/notas" class="btn btn-info">Voltar</a>
 </div>
-<?php require(path("views/partials/footer.php"))?>
+<?php require path("views/partials/footer.php"); ?>

@@ -1,26 +1,25 @@
 <?php
 use Base\Router;
-require("../Base/functions.php");
-const ROOT_DIR = __DIR__.'/../';
+require "../Base/functions.php";
+const ROOT_DIR = __DIR__ . "/../";
 
 //Função responsável pelo autoload de classes
 spl_autoload_register(function ($class) {
-    $class = str_replace('\\',DIRECTORY_SEPARATOR,$class);
+    $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
     $classPath = path("$class.php");
 
-    if(file_exists($classPath)) {
+    if (file_exists($classPath)) {
         require path("$class.php");
-    }
-    else {
-        abort(404,$routes,'Não encontrado');
+    } else {
+        abort(404, $routes, "Não encontrado");
     }
 });
 
 $router = new Router();
 
-$routes = require(path('routes.php'));
-$url = parse_url($_SERVER['REQUEST_URI'])['path'];
+$routes = require path("routes.php");
+$url = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
-$router->route($url,$method);
+$method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
+$router->route($url, $method);
 ?>

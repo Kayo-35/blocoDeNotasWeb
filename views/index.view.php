@@ -1,7 +1,7 @@
 <?php
-    extract($params);
-    require("partials/header.php");
-    require("partials/nav.php");
+extract($params);
+require "partials/header.php";
+require "partials/nav.php";
 ?>
 
 <div class="container mt-3">
@@ -11,4 +11,4 @@
     </div>
 </div>
 
-<?php require("partials/footer.php"); ?>
+<?php require "partials/footer.php"; ?>
