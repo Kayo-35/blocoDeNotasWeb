@@ -1,4 +1,5 @@
 <?php
+use Base\Router;
 require("../Base/functions.php");
 const ROOT_DIR = __DIR__.'/../';
 
@@ -11,9 +12,15 @@ spl_autoload_register(function ($class) {
         require path("$class.php");
     }
     else {
-        abort(404,ROUTES,'Não encontrado');
+        abort(404,$routes,'Não encontrado');
     }
 });
 
-require(path('Base/router.php')); //Roteamento da aplicação
+$router = new Router();
+
+$routes = require(path('routes.php'));
+$url = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+$router->route($url,$method);
 ?>

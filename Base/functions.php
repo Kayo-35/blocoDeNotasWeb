@@ -1,5 +1,6 @@
 <?php
 use Base\Response;
+
 //Verificar se o caminho requisitado em urls é o mesmo presente como título de paginas
 function isUrl($value) {
     return $_SERVER['REQUEST_URI'] === $value;
@@ -15,7 +16,7 @@ function varStats($item) {
 
 function authorize($condition,$status = Response::FORBIDDEN,$mensagem) {
     if($condition === false) {
-        abort($status,ROUTES,$mensagem);
+        abort($status,$mensagem);
     }
 }
 
@@ -31,6 +32,13 @@ function path($sufix) {
 
 function view($path,$params = [ 'nome' => 'Bloco de notas Web' ])
 {
-    require path('views/'.$path.'.php');
+    require path("views/$path.php",$params);
+}
+
+function abort($code = 404, $mensagem)
+{
+    http_response_code($code);
+    require("../controllers/responses/error.php");
+    die();
 }
 ?>

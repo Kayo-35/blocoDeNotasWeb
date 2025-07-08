@@ -15,7 +15,7 @@ $nome = "Anotações";
 
 //Gerando dinâmicamente conteúdo das anotações
 session_start();
-$_SESSION['userCode'] = 2;
+$_SESSION['userCode'] = 1;
 
 $notas = $db->exec('select id_nota,title,SUBSTRING_INDEX(body," ",6) as body
     from notas where id_user = :id order by dt_nota desc;',

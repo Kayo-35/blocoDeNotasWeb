@@ -13,6 +13,7 @@ require(path("views/partials/nav.php"));
             <div class="d-flex justify-content-between align-items-center card-header text-bg-dark">
                 <span>Anotação:</span>
                 <form method="POST">
+                    <input type="hidden" name="_method" value="delete">
                     <input type="hidden" name="id_nota" value="<?= $lista['id_nota'] ?>">
                     <button class="btn btn-outline-danger btn-sm">DELETAR</button>
                 </form>
