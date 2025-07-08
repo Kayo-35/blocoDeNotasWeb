@@ -24,7 +24,7 @@ function routing($url) {
         require(ROUTES[$url]);
     }
     else {
-        abort(404,'/error');
+        abort(404,'/error','Não encontrado!');
     }
 }
 

@@ -1,8 +1,8 @@
 <?php
-
 namespace Base;
 
 use PDO;
+
 //Classe para conexão e manipulação da base de dados
 class Database {
     //Propriedades
@@ -40,11 +40,9 @@ class Database {
         ]);
         $this->conn = $pdo;
     }
-
     public function exec($query,$params = []) {
         $this->statement = $this->conn->prepare($query);
         $this->statement->execute($params);
-
         return $this;
     }
 

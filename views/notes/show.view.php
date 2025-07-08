@@ -10,8 +10,12 @@ require(path("views/partials/nav.php"));
         w-25"
     >
         <div class="card">
-            <div class="card-header text-bg-dark">
-                Anotação:
+            <div class="d-flex justify-content-between align-items-center card-header text-bg-dark">
+                <span>Anotação:</span>
+                <form method="POST">
+                    <input type="hidden" name="id_nota" value="<?= $lista['id_nota'] ?>">
+                    <button class="btn btn-outline-danger btn-sm">DELETAR</button>
+                </form>
             </div>
             <div class="card-body text-bg-info">
                 <h5><?= $lista['dt_nota'] ?></h5>
