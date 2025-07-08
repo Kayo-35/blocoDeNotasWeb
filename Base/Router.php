@@ -4,10 +4,14 @@ class Router
 {
     protected $routes = [];
 
-    public function route($url,$method) {
-        foreach($this->routes as $route) {
-            if($url === $route['url'] && $route['method'] == strtoupper($method)) {
-                require path($route['controller']);
+    public function route($url, $method)
+    {
+        foreach ($this->routes as $route) {
+            if (
+                $url === $route["url"] &&
+                $route["method"] == strtoupper($method)
+            ) {
+                require path($route["controller"]);
                 die();
             }
         }
