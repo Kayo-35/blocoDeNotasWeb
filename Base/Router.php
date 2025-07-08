@@ -15,36 +15,36 @@ class Router
                 die();
             }
         }
-        abort(403,'Nenhuma página fora encontrada!');
+        abort(403, "Nenhuma página fora encontrada!");
     }
-    public function add($url, $controller,$method)
+    public function add($url, $controller, $method)
     {
         $this->routes[] = [
             "url" => $url,
             "controller" => $controller,
-            "method" => $method
+            "method" => $method,
         ];
     }
 
     public function get($url, $controller)
     {
-        $this->add($url, $controller,'GET');
+        $this->add($url, $controller, "GET");
     }
     public function post($url, $controller)
     {
-        $this->add($url, $controller,'POST');
+        $this->add($url, $controller, "POST");
     }
     public function delete($url, $controller)
     {
-        $this->add($url, $controller, 'DELETE');
+        $this->add($url, $controller, "DELETE");
     }
     public function patch($url, $controller)
     {
-        $this->add($url, $controller, 'PATCH');
+        $this->add($url, $controller, "PATCH");
     }
     public function put($url, $controller)
     {
-        $this->add($url, $controller, 'PUT');
+        $this->add($url, $controller, "PUT");
     }
 }
 ?>
