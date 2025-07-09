@@ -1,3 +1,5 @@
 <?php
-view("responses/ops.view");
+view("responses/ops.view", [
+    "nome" => "Ops...",
+]);
 ?>

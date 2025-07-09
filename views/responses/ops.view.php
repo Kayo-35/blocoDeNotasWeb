@@ -1,6 +1,6 @@
 <?php
 extract($params);
-require "partials/header.php";
+require path("views/partials/header.php");
 ?>
 <!--Página para indicar ausência de conteúdo!-->
 <div class="d-flex mt-5 justify-content-center">
@@ -12,4 +12,4 @@ require "partials/header.php";
         </div>
     </div>
 </div>
-<?php require "views/partials/footer.php"; ?>
+<?php require path("views/partials/footer.php"); ?>

@@ -23,7 +23,7 @@ $notas = $db
     from notas where id_user = :id order by dt_nota desc;',
         ["id" => $_SESSION["userCode"]]
     )
-    ->findAllOrAbort();
+    ->findAll();
 
 $user = $db
     ->exec("select name from usuario where id_user = :id", [
@@ -31,5 +31,9 @@ $user = $db
     ])
     ->findOrAbort();
 
-require path("views/notes/index.view.php");
+view("notes/index.view", [
+    "nome" => "Anotações",
+    "notas" => $notas,
+    "user" => $user,
+]);
 ?>

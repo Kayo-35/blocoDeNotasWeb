@@ -1,4 +1,5 @@
 <?php
+extract($params);
 require path("views/partials/header.php");
 require path("views/partials/nav.php");
 ?>
@@ -15,6 +16,6 @@ require path("views/partials/nav.php");
     </div>
     <?php !empty($notas)
         ? require path("views/partials/listaNotas.php")
-        : require path("views/ops.php"); ?>
+        : view("responses/ops.view"); ?>
 </div>
 <?php require path("views/partials/footer.php"); ?>
