@@ -15,6 +15,8 @@ spl_autoload_register(function ($class) {
     }
 });
 
+require path("bootstrap.php");
+
 $router = new Router();
 require path("routes.php");
 

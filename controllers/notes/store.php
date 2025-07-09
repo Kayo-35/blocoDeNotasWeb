@@ -1,16 +1,10 @@
 <?php
-use Base\Database;
+use Base\App;
 use Base\Validator;
-require path("env.php");
+use Base\Database;
 session_start();
 
-$db = new Database(
-    $env["database"]["host"],
-    $env["database"]["user"],
-    $env["database"]["dbName"],
-    $env["database"]["port"],
-    $env["database"]["password"]
-);
+$db = App::resolve(Database::class);
 $db->connect();
 
 //Validação dos dados submetidos

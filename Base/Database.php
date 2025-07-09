@@ -17,13 +17,13 @@ class Database
     public $statement;
 
     //Construct
-    public function __construct($host, $user, $dbName, $port, $password)
+    public function __construct($config)
     {
-        $this->host = $host;
-        $this->user = $user;
-        $this->password = $password;
-        $this->dbName = $dbName;
-        $this->port = $port;
+        $this->host = $config["host"];
+        $this->user = $config["user"];
+        $this->password = $config["password"];
+        $this->dbName = $config["dbName"];
+        $this->port = $config["port"];
     }
 
     //Metodos

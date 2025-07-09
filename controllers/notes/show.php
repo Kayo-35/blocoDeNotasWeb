@@ -1,14 +1,9 @@
 <?php
-use Base\Database;
 use Base\Response;
-require path("env.php"); //Configurações de ambiente
-$db = new Database(
-    $env["database"]["host"],
-    $env["database"]["user"],
-    $env["database"]["dbName"],
-    $env["database"]["port"],
-    $env["database"]["password"]
-);
+use Base\Database;
+use Base\App;
+
+$db = App::resolve(Database::class);
 $db->connect();
 
 session_start();

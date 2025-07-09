@@ -1,16 +1,10 @@
 <?php
 use Base\Database;
-require path("env.php"); //Configurações de ambiente
+use Base\App;
 
-$db = new Database(
-    $env["database"]["host"],
-    $env["database"]["user"],
-    $env["database"]["dbName"],
-    $env["database"]["port"],
-    $env["database"]["password"]
-);
-
+$db = App::resolve(Database::class);
 $db->connect();
+
 $nome = "Anotações";
 
 //Gerando dinâmicamente conteúdo das anotações
