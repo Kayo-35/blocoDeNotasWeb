@@ -26,6 +26,11 @@ require path("views/partials/nav.php");
                     <?= htmlspecialchars($lista["body"]) ?>
                 </p>
             </div>
+            <div class="card-footer bg-dark">
+                <a class="btn btn-outline-warning btn-sm" href="/nota/editar?id=<?= $lista[
+                    "id_nota"
+                ] ?>">EDITAR</a>
+            </div>
         </div>
     </div>
 </div>

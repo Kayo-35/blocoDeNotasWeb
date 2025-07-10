@@ -8,6 +8,7 @@ class Validator
         $value = trim($value);
         return strlen($value) >= $min && strlen($value) <= $max;
     }
+    //Valida titulos de anotações
     public static function title($value, $max = 50)
     {
         $value = trim($value);
@@ -19,6 +20,11 @@ class Validator
         } else {
             return true;
         }
+    }
+    public static function body($value, $min = 1, $max = 4000)
+    {
+        $value = trim($value);
+        return strlen($value) >= $min && strlen($value) <= $max;
     }
 }
 ?>
