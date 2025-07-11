@@ -19,10 +19,9 @@ if (!Validator::string($password, 7, 255)) {
 }
 
 if (!empty($erros)) {
-    view("registrar/create.view", [
+    return view("registrar/create.view", [
         "erros" => $erros,
     ]);
-    die();
 }
 
 $db = App::resolve(Database::class);
@@ -36,10 +35,9 @@ $result = $db
 
 if ($result["qt"] !== 0) {
     $erros["login"] = "Usuario já cadastrado! Realize login ao invés!";
-    view("registrar/create.view", [
+    return view("registrar/create.view", [
         "erros" => $erros,
     ]);
-    die();
 }
 
 $db->exec(
@@ -52,17 +50,13 @@ $db->exec(
 );
 
 $user = $db
-    ->exec("SELECT id_user FROM usuario WHERE email = :email", [
+    ->exec("SELECT id_user,name,email FROM usuario WHERE email = :email", [
         "email" => $email,
     ])
     ->find();
 
 //Armazena em sessão o acesso
-$_SESSION["user"] = [
-    "email" => $email,
-    "name" => $name,
-    "userCode" => $user["id_user"],
-];
+login($user);
 
 confirmar("Usuário Cadastrado!", "/notas");
 ?>

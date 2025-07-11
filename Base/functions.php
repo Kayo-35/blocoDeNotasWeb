@@ -46,4 +46,31 @@ function abort($code = 404, $mensagem)
     require "../controllers/responses/error.php";
     die();
 }
+
+function login($user)
+{
+    $_SESSION["user"] = [
+        "name" => $user["name"],
+        "email" => $user["email"],
+        "userCode" => $user["id_user"],
+    ];
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+    session_destroy();
+    //Destuindo o cookie local do browser
+    $params = session_get_cookie_params();
+    setcookie(
+        "PHPSESSID",
+        "",
+        time() - 3600,
+        $params["path"],
+        $params["domain"],
+        $params["httponly"]
+    );
+}
 ?>

@@ -1,8 +1,8 @@
 -- Inserção de usuários
-INSERT INTO usuario (name, email) VALUES
-('João Silva', 'joao.silva@example.com'),
-('Maria Souza', 'maria.souza@example.com'),
-('Pedro Almeida', 'pedro.almeida@example.com');
+INSERT INTO usuario (name, email,password) VALUES
+('João Silva', 'joao.silva@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC"),
+('Maria Souza', 'maria.souza@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC"),
+('Pedro Almeida', 'pedro.almeida@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC");
 
 -- Inserção de anotações para o usuário 1 (João Silva)
 INSERT INTO notas (id_user, title, body, dt_nota) VALUES

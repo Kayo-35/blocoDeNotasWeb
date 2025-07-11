@@ -13,11 +13,14 @@ $router->patch("/nota/editar", "controllers/notes/update.php");
 $router->get("/notas/criar-nota", "controllers/notes/create.php");
 $router->post("/notas/criar-nota", "controllers/notes/store.php");
 
-//Rotas para registro de usuários
+//Rotas para registro e login de usuários
 $router
     ->get("/registrar/cadastrar", "controllers/registrar/create.php")
     ->only("guest");
 $router->post("/registrar/cadastrar", "controllers/registrar/store.php");
+$router->get("/login", "controllers/sessions/create.php")->only("guest");
+$router->post("/login", "controllers/sessions/store.php")->only("guest");
+$router->delete("/login", "controllers/sessions/destroy.php")->only("logged");
 
 //Rotas para respostas de requisições
 $router->get("/error", "controllers/responses/error.php");

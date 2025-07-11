@@ -8,7 +8,11 @@ require path("views/partials/nav.php");
     <form class="container w-50 border border-dark rounded p-4" method="POST">
         <div class="input-group mb-3">
             <label class="input-group-text bg-info" for="title">Título</label>
-            <input id="title" name="title" class="bg-dark text-light form-control" placeholder="Nomeie sua nota">
+            <input id="title" name="title" class="bg-dark text-light form-control" placeholder="Nomeie sua nota" value="<?= isset(
+                $_POST["title"]
+            )
+                ? $_POST["title"]
+                : "" ?>">
         </div>
         <!-- Validação título -->
         <?php if (isset($erros["title"])): ?>
