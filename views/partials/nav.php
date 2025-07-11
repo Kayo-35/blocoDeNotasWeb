@@ -33,9 +33,9 @@
                         : "" ?>" href="/contact">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= isUrl("/donation")
+                    <a class="nav-link <?= isUrl("/registrar/cadastrar")
                         ? "active"
-                        : "" ?>" href="/donations.php">Doações</a>
+                        : "" ?>" href="/registrar/cadastrar">Registrar-se</a>
                 </li>
             </ul>
         </div>
