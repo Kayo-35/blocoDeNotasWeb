@@ -47,8 +47,22 @@ $db->exec(
     [
         "name" => $name,
         "email" => $email,
-        "password" => $password,
+        "password" => password_hash($password, PASSWORD_BCRYPT),
     ]
 );
-confirmar("Usuário Cadastrado!", "/");
+
+$user = $db
+    ->exec("SELECT id_user FROM usuario WHERE email = :email", [
+        "email" => $email,
+    ])
+    ->find();
+
+//Armazena em sessão o acesso
+$_SESSION["user"] = [
+    "email" => $email,
+    "name" => $name,
+    "userCode" => $user["id_user"],
+];
+
+confirmar("Usuário Cadastrado!", "/notas");
 ?>

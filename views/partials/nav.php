@@ -17,10 +17,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= isUrl("/notas") ||
-                    str_starts_with($url, "/notas/")
-                        ? "active"
-                        : "" ?>" href="/notas">Anotações</a>
+                    <?php if ($_SESSION["user"] ?? false): ?>
+                        <a class="nav-link <?= isUrl("/notas") ||
+                        str_starts_with($url, "/notas/")
+                            ? "active"
+                            : "" ?>" href="/notas">Anotações</a>
+                    <?php endif; ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?= isUrl("/about")
@@ -33,9 +35,11 @@
                         : "" ?>" href="/contact">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= isUrl("/registrar/cadastrar")
-                        ? "active"
-                        : "" ?>" href="/registrar/cadastrar">Registrar-se</a>
+                    <?php if (!$_SESSION["user"] ?? true): ?>
+                        <a class="nav-link <?= isUrl("/registrar/cadastrar")
+                            ? "active"
+                            : "" ?>" href="/registrar/cadastrar">Registrar-se</a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>

@@ -1,5 +1,6 @@
 <?php
 use Base\Router;
+session_start();
 require "../Base/functions.php";
 const ROOT_DIR = __DIR__ . "/../";
 
