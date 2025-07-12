@@ -38,6 +38,7 @@ class User
     {
         return $this->userCode;
     }
+
     public function connect()
     {
         $this->db = App::resolve(Database::class);
@@ -52,6 +53,15 @@ class User
             ])
             ->find();
         return $user;
+    }
+    public function searchName()
+    {
+        $this->connect();
+        $this->name = $this->db
+            ->exec("SELECT name FROM usuario WHERE email = :email", [
+                "email" => $this->email,
+            ])
+            ->find()["name"];
     }
     public function register(User $user)
     {

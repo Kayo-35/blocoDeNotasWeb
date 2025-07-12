@@ -19,6 +19,7 @@ class Authenticator
 
     public function login(User $user)
     {
+        is_null($user->name) ? $user->searchName() : false;
         $user->setUserCode();
         $_SESSION["user"] = [
             "name" => $user->name,

@@ -10,12 +10,10 @@ $form = new LoginForm();
 
 if ($form->validar($user)) {
     $auth = new Authenticator();
-
     if ($auth->attempt($user)) {
         redirect("/");
-    } else {
-        $form->addError("password", "Usuário ou senha incorretos!");
     }
+    $form->addError("password", "Usuário ou senha incorretos!");
 }
 
 //Caso autenticação falhe
