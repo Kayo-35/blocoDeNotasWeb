@@ -1,5 +1,6 @@
 <?php
-echo "Ola";
-logout();
-header("location: /");
+use Base\Authenticator;
+$auth = new Authenticator();
+$auth->logout();
+redirect("/");
 ?>

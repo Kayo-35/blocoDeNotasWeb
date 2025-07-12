@@ -3,7 +3,6 @@ extract($params);
 require path("views/partials/header.php");
 require path("views/partials/nav.php");
 ?>
-
 <div class="container mt-3 w-100 w-sm-50">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>

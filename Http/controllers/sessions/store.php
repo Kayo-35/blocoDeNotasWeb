@@ -1,42 +1,25 @@
 <?php
-use Base\Database;
-use Http\Forms;
-use Base\App;
+use Base\Authenticator;
 use Http\Forms\LoginForm;
+use Http\Forms\User;
 
-$atributos = [
-    "email" => $_POST["email"],
-    "password" => $_POST["password"],
-];
+$user = new User();
+$user->setup();
 
 $form = new LoginForm();
 
-if (!$form->validar($atributos)) {
-    return view("/sessions/create.view", [
-        "erros" => $form->getErros(),
-    ]);
-}
+if ($form->validar($user)) {
+    $auth = new Authenticator();
 
-$db = App::resolve(Database::class);
-$db->connect();
-$user = $db
-    ->exec("SELECT * FROM usuario WHERE email = :email;", [
-        "email" => $_POST["email"],
-    ])
-    ->find();
-
-if (isset($user["id_user"])) {
-    if (password_verify($_POST["password"], $user["password"])) {
-        login($user);
-        header("location: /notas");
-        die();
+    if ($auth->attempt($user)) {
+        redirect("/");
+    } else {
+        $form->addError("password", "Usuário ou senha incorretos!");
     }
 }
 
+//Caso autenticação falhe
 return view("/sessions/create.view", [
-    "erros" => [
-        "email" =>
-            "Nenhum usuário encontrado relativo ao e-mail e senhas indicados!",
-    ],
+    "erros" => $form->getErros(),
 ]);
 ?>

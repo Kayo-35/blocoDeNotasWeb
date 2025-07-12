@@ -8,7 +8,6 @@ $db->connect();
 $nome = "Anotações";
 
 //Gerando dinâmicamente conteúdo das anotações
-session_start();
 $_SESSION["userCode"] = $_SESSION["user"]["userCode"];
 $notas = $db
     ->exec(

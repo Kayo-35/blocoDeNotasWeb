@@ -25,8 +25,7 @@ function authorize($condition, $status = Response::FORBIDDEN, $mensagem)
 
 function confirmar($titulo = "Ação bem sucedida!", $path)
 {
-    require "../controllers/responses/confirmar.php";
-    varStats($titulo);
+    require path("Http/controllers/responses/confirmar.php");
     die();
 }
 
@@ -47,30 +46,9 @@ function abort($code = 404, $mensagem)
     die();
 }
 
-function login($user)
+function redirect($path)
 {
-    $_SESSION["user"] = [
-        "name" => $user["name"],
-        "email" => $user["email"],
-        "userCode" => $user["id_user"],
-    ];
-
-    session_regenerate_id(true);
-}
-
-function logout()
-{
-    $_SESSION = [];
-    session_destroy();
-    //Destuindo o cookie local do browser
-    $params = session_get_cookie_params();
-    setcookie(
-        "PHPSESSID",
-        "",
-        time() - 3600,
-        $params["path"],
-        $params["domain"],
-        $params["httponly"]
-    );
+    header("location: {$path}");
+    die();
 }
 ?>

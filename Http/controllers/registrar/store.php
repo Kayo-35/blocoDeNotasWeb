@@ -1,57 +1,32 @@
 <?php
-use Base\Validator;
-use Base\Database;
-use Base\App;
-use Http\Forms;
+use Base\Authenticator;
 use Http\Forms\LoginForm;
+use Http\Forms\User;
 
-$atributos = [
-    "name" => $_POST["name"],
-    "email" => $_POST["email"],
-    "password" => $_POST["password"],
-];
+$user = new User();
+$user->setup();
 
 $form = new LoginForm();
 
-if (!$form->validar($atributos)) {
+if (!$form->validar($user)) {
     return view("registrar/create.view", [
         "erros" => $form->getErros(),
     ]);
 }
 
-$db = App::resolve(Database::class);
-$db->connect();
+$result = $user->search();
 
-$result = $db
-    ->exec("SELECT COUNT(id_user) as qt FROM usuario WHERE email = :email;", [
-        "email" => $atributos["email"],
-    ])
-    ->findOrAbort();
-
-if ($result["qt"] !== 0) {
+if (!empty($result)) {
     $erros["login"] = "Usuario já cadastrado! Realize login ao invés!";
     return view("registrar/create.view", [
         "erros" => $erros,
     ]);
 }
-
-$db->exec(
-    "INSERT INTO usuario(name,email,password) VALUES (:name,:email,:password);",
-    [
-        "name" => $name,
-        "email" => $email,
-        "password" => password_hash($password, PASSWORD_BCRYPT),
-    ]
-);
-
-$user = $db
-    ->exec("SELECT id_user,name,email FROM usuario WHERE email = :email", [
-        "email" => $email,
-    ])
-    ->find();
+$user->register($user);
 
 //Armazena em sessão o acesso
-login($user);
+$auth = new Authenticator();
+$auth->login($user);
 
 confirmar("Usuário Cadastrado!", "/notas");
 ?>
