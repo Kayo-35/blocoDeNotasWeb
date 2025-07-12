@@ -2,25 +2,20 @@
 use Base\Validator;
 use Base\Database;
 use Base\App;
+use Http\Forms;
+use Http\Forms\LoginForm;
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+$atributos = [
+    "name" => $_POST["name"],
+    "email" => $_POST["email"],
+    "password" => $_POST["password"],
+];
 
-$erros = [];
-if (!Validator::string($name, 1, 50)) {
-    $erros["name"] = "Insira um nome entre 1 e 50 caracteres";
-}
-if (!Validator::email($email)) {
-    $erros["email"] = "Insira um email válido!";
-}
-if (!Validator::string($password, 7, 255)) {
-    $erros["password"] = "Insira uma senha com no mínimo 7 caracteres!";
-}
+$form = new LoginForm();
 
-if (!empty($erros)) {
+if (!$form->validar($atributos)) {
     return view("registrar/create.view", [
-        "erros" => $erros,
+        "erros" => $form->getErros(),
     ]);
 }
 
@@ -29,7 +24,7 @@ $db->connect();
 
 $result = $db
     ->exec("SELECT COUNT(id_user) as qt FROM usuario WHERE email = :email;", [
-        "email" => $email,
+        "email" => $atributos["email"],
     ])
     ->findOrAbort();
 

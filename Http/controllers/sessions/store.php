@@ -1,21 +1,19 @@
 <?php
-use Base\Validator;
 use Base\Database;
+use Http\Forms;
 use Base\App;
-$email = $_POST["email"];
-$password = $_POST["password"];
+use Http\Forms\LoginForm;
 
-$erros = [];
-if (!Validator::email($_POST["email"])) {
-    $erros["email"] = "Insira um email válido!";
-}
-if (!Validator::string($_POST["password"])) {
-    $erros["password"] = "Insira uma senha com ao menos 7 caracteres!";
-}
+$atributos = [
+    "email" => $_POST["email"],
+    "password" => $_POST["password"],
+];
 
-if (!empty($erros)) {
+$form = new LoginForm();
+
+if (!$form->validar($atributos)) {
     return view("/sessions/create.view", [
-        "erros" => $erros,
+        "erros" => $form->getErros(),
     ]);
 }
 
@@ -23,12 +21,12 @@ $db = App::resolve(Database::class);
 $db->connect();
 $user = $db
     ->exec("SELECT * FROM usuario WHERE email = :email;", [
-        "email" => $email,
+        "email" => $_POST["email"],
     ])
     ->find();
 
 if (isset($user["id_user"])) {
-    if (password_verify($password, $user["password"])) {
+    if (password_verify($_POST["password"], $user["password"])) {
         login($user);
         header("location: /notas");
         die();

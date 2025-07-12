@@ -16,7 +16,7 @@ class Router
                 $route["method"] == strtoupper($method)
             ) {
                 Middleware::resolve($route["middleware"]);
-                return require path($route["controller"]);
+                return require path("Http/controllers" . $route["controller"]);
                 die();
             }
         }
