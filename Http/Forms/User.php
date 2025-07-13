@@ -2,6 +2,7 @@
 namespace Http\Forms;
 use Base\App;
 use Base\Database;
+use Base\ValidationException;
 
 class User
 {
@@ -16,6 +17,13 @@ class User
         $this->name = $_POST["name"] ?? null;
         $this->email = $_POST["email"];
         $this->setPass($_POST["password"]);
+    }
+    public function retrieve()
+    {
+        return $user = [
+            "name" => $this->name,
+            "email" => $this->email,
+        ];
     }
     public function setPass($password)
     {
@@ -74,6 +82,16 @@ class User
                 "password" => password_hash($user->getPass(), PASSWORD_BCRYPT),
             ]
         );
+    }
+    public function check(User $user, LoginForm $form)
+    {
+        if (!empty($user->search())) {
+            $form->addError(
+                "login",
+                "Usuário já cadastrado! Faça login ao invés!"
+            );
+            ValidationException::throw($form->getErros(), $user->retrieve());
+        }
     }
 }
 ?>

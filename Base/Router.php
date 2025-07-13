@@ -37,6 +37,10 @@ class Router
         $this->routes[array_key_last($this->routes)]["middleware"] = $key;
         return $this;
     }
+    public function redirect()
+    {
+        redirect($_SERVER["HTTP_REFERER"]) ?? redirect("/");
+    }
 
     public function get($url, $controller)
     {
