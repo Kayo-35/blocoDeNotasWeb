@@ -41,7 +41,7 @@ require path("views/partials/nav.php");
         </p>
         <?php endif; ?>
 
-        <?php if (isset($erros)): ?>
+        <?php if (isset($erros["login"])): ?>
         <p class="text-danger fs-5 fw-bold text-center mb-1">
             <?= $erros["login"] ?>
         </p>
@@ -52,5 +52,4 @@ require path("views/partials/nav.php");
     </form>
 </div>
 </section>
-<?php require path("views/partials/footer.php");
-?>
+<?php require path("views/partials/footer.php"); ?>

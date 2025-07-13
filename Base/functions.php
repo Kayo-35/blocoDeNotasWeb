@@ -42,7 +42,7 @@ function view($path, $params = ["nome" => "Bloco de notas Web"])
 function abort($code = 404, $mensagem)
 {
     http_response_code($code);
-    require "../controllers/responses/error.php";
+    require path("Http/controllers/responses/error.php");
     die();
 }
 

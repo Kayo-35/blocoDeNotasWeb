@@ -1,5 +1,7 @@
 <?php
 use Base\Router;
+use Base\Session;
+
 $_SESSION ?? session_start();
 require "../Base/functions.php";
 const ROOT_DIR = __DIR__ . "/../";
@@ -25,4 +27,6 @@ $routes = $url = parse_url($_SERVER["REQUEST_URI"])["path"];
 
 $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
 $router->route($url, $method);
+
+Session::unset();
 ?>

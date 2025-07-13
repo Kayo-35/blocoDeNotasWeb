@@ -2,6 +2,7 @@
 use Base\Authenticator;
 use Http\Forms\LoginForm;
 use Http\Forms\User;
+use Base\Session;
 
 $user = new User();
 $user->setup();
@@ -9,19 +10,18 @@ $user->setup();
 $form = new LoginForm();
 
 if (!$form->validar($user)) {
-    return view("registrar/create.view", [
-        "erros" => $form->getErros(),
-    ]);
+    Session::flash("erros", $form->getErros());
+    redirect("/registrar/cadastrar");
 }
 
 $result = $user->search();
 
 if (!empty($result)) {
-    $erros["login"] = "Usuario já cadastrado! Realize login ao invés!";
-    return view("registrar/create.view", [
-        "erros" => $erros,
-    ]);
+    $form->addError("login", "Usuário já cadastrado! Realize login ao invés!");
+    Session::flash("erros", $form->getErros());
+    redirect("/registrar/cadastrar");
 }
+
 $user->register($user);
 
 //Armazena em sessão o acesso

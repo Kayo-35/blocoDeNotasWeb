@@ -1,5 +1,6 @@
 <?php
 use Base\Authenticator;
+use Base\Session;
 use Http\Forms\LoginForm;
 use Http\Forms\User;
 
@@ -11,13 +12,12 @@ $form = new LoginForm();
 if ($form->validar($user)) {
     $auth = new Authenticator();
     if ($auth->attempt($user)) {
-        redirect("/");
+        $auth->login($user);
     }
     $form->addError("password", "Usuário ou senha incorretos!");
 }
 
 //Caso autenticação falhe
-return view("/sessions/create.view", [
-    "erros" => $form->getErros(),
-]);
+Session::flash("erros", $form->getErros());
+redirect("/login");
 ?>

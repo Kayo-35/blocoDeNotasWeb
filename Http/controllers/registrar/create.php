@@ -1,6 +1,9 @@
 <?php
-$nome = "Criar Conta";
 
+use Base\Session;
+
+$nome = "Criar Conta";
 view("registrar/create.view", [
-    "erros" => isset($erros) ? $erros : [],
+    "nome" => $nome,
+    "erros" => Session::get("erros") ?? [],
 ]);
