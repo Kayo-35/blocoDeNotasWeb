@@ -19,6 +19,10 @@ $result = $user->search();
 if (!empty($result)) {
     $form->addError("login", "Usuário já cadastrado! Realize login ao invés!");
     Session::flash("erros", $form->getErros());
+    Session::flash("old", [
+        "name" => $user->name,
+        "email" => $user->email,
+    ]);
     redirect("/registrar/cadastrar");
 }
 
@@ -28,5 +32,5 @@ $user->register($user);
 $auth = new Authenticator();
 $auth->login($user);
 
-confirmar("Usuário Cadastrado!", "/notas");
+confirmar("Usuário Cadastrado!", "/confirmar");
 ?>

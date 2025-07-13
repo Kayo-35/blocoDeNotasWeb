@@ -25,8 +25,7 @@ function authorize($condition, $status = Response::FORBIDDEN, $mensagem)
 
 function confirmar($titulo = "Ação bem sucedida!", $path)
 {
-    require path("Http/controllers/responses/confirmar.php");
-    die();
+    redirect($path);
 }
 
 function path($sufix)

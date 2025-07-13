@@ -12,7 +12,7 @@ require path("views/partials/nav.php");
     <form method="POST">
         <div class="my-2">
             <input type="text" class="form-control rounded-left" name="name" placeholder="Nome" required
-                value="<?= htmlspecialchars($_POST["name"]) ?? "" ?>">
+                value="<?= htmlspecialchars($old["name"]) ?? "" ?>">
         </div>
         <?php if (isset($erros["name"])): ?>
             <p class="text-danger fst-italic fs-6 mt-2">
@@ -22,7 +22,7 @@ require path("views/partials/nav.php");
 
         <div class="my-2">
             <input type="email" class="form-control rounded-left" name="email" placeholder="E-mail" required
-                value="<?= htmlspecialchars($_POST["email"]) ?? "" ?>">
+                value="<?= htmlspecialchars($old["email"]) ?? "" ?>">
         </div>
         <?php if (isset($erros["email"])): ?>
         <p class="text-danger fst-italic fs-6 mt-2">
@@ -31,8 +31,7 @@ require path("views/partials/nav.php");
         <?php endif; ?>
 
         <div class="my-2">
-            <input type="password" class="form-control rounded-left" name="password" placeholder="Senha" required
-            value="<?= htmlspecialchars($_POST["password"]) ?? "" ?>">
+            <input type="password" class="form-control rounded-left" name="password" placeholder="Senha" required>
         </div>
 
         <?php if (isset($erros["password"])): ?>

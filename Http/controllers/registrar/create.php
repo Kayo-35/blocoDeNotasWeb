@@ -6,4 +6,5 @@ $nome = "Criar Conta";
 view("registrar/create.view", [
     "nome" => $nome,
     "erros" => Session::get("erros") ?? [],
+    "old" => Session::get("old") ?? [],
 ]);

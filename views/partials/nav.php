@@ -35,7 +35,7 @@
                         : "" ?>" href="/contact">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <?php if (!$_SESSION["user"] ?? true): ?>
+                    <?php if (!isset($_SESSION["user"]) ?? true): ?>
                         <a class="nav-link <?= isUrl("/registrar/cadastrar")
                             ? "active"
                             : "" ?>" href="/registrar/cadastrar">Registrar-se</a>
@@ -43,7 +43,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <?php if (!$_SESSION["user"] ?? false): ?>
+                    <?php if (!isset($_SESSION["user"]) ?? false): ?>
                         <a class="nav-link <?= isUrl("/login")
                             ? "active"
                             : "" ?>" href="/login">Login</a>

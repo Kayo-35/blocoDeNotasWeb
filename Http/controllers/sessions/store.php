@@ -19,5 +19,8 @@ if ($form->validar($user)) {
 
 //Caso autenticação falhe
 Session::flash("erros", $form->getErros());
+Session::flash("old", [
+    "email" => $user->email,
+]);
 redirect("/login");
 ?>

@@ -1,6 +1,7 @@
 <?php
 namespace Base;
 use Http\Forms\User;
+use Base\Session;
 
 class Authenticator
 {
@@ -32,17 +33,6 @@ class Authenticator
 
     public function logout()
     {
-        $_SESSION = [];
-        session_destroy();
-        //Destuindo o cookie local do browser
-        $params = session_get_cookie_params();
-        setcookie(
-            "PHPSESSID",
-            "",
-            time() - 3600,
-            $params["path"],
-            $params["domain"],
-            $params["httponly"]
-        );
+        Session::destroy();
     }
 }

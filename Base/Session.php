@@ -31,4 +31,18 @@ class Session
     {
         $_SESSION = [];
     }
+    public static function destroy()
+    {
+        Session::reset();
+        //Destuindo o cookie local do browser
+        $params = session_get_cookie_params();
+        setcookie(
+            "PHPSESSID",
+            "",
+            time() - 3600,
+            $params["path"],
+            $params["domain"],
+            $params["httponly"]
+        );
+    }
 }
