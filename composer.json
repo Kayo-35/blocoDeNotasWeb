@@ -1,0 +1,21 @@
+{
+  "name": "kayo/dynamic-web",
+  "require": {
+    "illuminate/collections": "^12.20"
+  },
+  "autoload": {
+    "psr-4": {
+      "Base\\": "Base/",
+      "Http\\": "Http/",
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.8"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

@@ -7,18 +7,8 @@ $_SESSION ?? session_start();
 require "../Base/functions.php";
 const ROOT_DIR = __DIR__ . "/../";
 
-//Função responsável pelo autoload de classes
-spl_autoload_register(function ($class) {
-    $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
-    $classPath = path("$class.php");
-
-    if (file_exists($classPath)) {
-        require path("$class.php");
-    } else {
-        abort(404, $routes, "Não encontrado");
-    }
-});
-
+//Autoloader do composer
+require path("vendor/autoload.php");
 require path("bootstrap.php");
 
 $router = new Router();
