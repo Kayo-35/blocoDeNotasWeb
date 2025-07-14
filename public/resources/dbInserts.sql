@@ -1,5 +1,6 @@
 -- Inserção de usuários
 INSERT INTO usuario (name, email,password) VALUES
+-- As senhas foram submetidas com hashing, o valor real delas é 123456
 ('João Silva', 'joao.silva@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC"),
 ('Maria Souza', 'maria.souza@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC"),
 ('Pedro Almeida', 'pedro.almeida@example.com',"$2y$10$SdNwKeynYOFBLFR99DMSQej3P5YNIFeaqH6Od.7gWkHXCg48iXXMC");

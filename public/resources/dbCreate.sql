@@ -2,7 +2,7 @@ CREATE TABLE usuario(
 id_user INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(100) NOT NULL,
 email VARCHAR(120) UNIQUE,
-
+password VARCHAR(255),
 PRIMARY KEY(id_user)
 );
 
