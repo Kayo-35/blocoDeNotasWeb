@@ -1,8 +1,5 @@
 {
   "name": "kayo/dynamic-web",
-  "require": {
-    "illuminate/collections": "^12.20"
-  },
   "autoload": {
     "psr-4": {
       "Base\\": "Base/",
