@@ -32,5 +32,9 @@ class Validator
     {
         return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
     }
+    public static function qtItens(array $lista,int $max = INF,int $min = 1) : bool {
+        $qtItems = count($lista);
+        return $qtItems <= $max && $qtItems >= $min;
+    }
 }
 ?>

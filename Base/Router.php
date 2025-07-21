@@ -1,7 +1,5 @@
 <?php
 namespace Base;
-use Base\Middleware\Guest;
-use Base\Middleware\Logged;
 use Base\Middleware\Middleware;
 
 class Router
