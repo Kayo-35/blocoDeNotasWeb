@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">PHP para Iniciantes</a>
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid" width="3%" src="resources/img/logo.webp" alt="pergaminho">
+            <span class="h5 fw-bold">LumaNotes</span>
+        </a>
         <button
             class="navbar-toggler"
             type="button" data-bs-toggle="collapse"
