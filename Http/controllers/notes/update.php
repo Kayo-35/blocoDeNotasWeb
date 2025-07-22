@@ -2,7 +2,6 @@
 use Base\App;
 use Base\Validator;
 use Base\Database;
-session_start();
 
 $db = App::resolve(Database::class);
 $db->connect();
