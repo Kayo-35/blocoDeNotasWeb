@@ -12,7 +12,7 @@ require path("views/partials/nav.php");
     <form method="POST">
         <div class="my-2">
             <input type="email" class="form-control rounded-left" name="email" placeholder="E-mail" required
-                value="<?= htmlspecialchars($old["email"]) ?? "" ?>">
+                value="<?= isset($old["email"]) ? htmlspecialchars($old["email"]) : "" ?>">
         </div>
 
         <div class="my-2">

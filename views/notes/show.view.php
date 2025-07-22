@@ -14,9 +14,9 @@ require path("views/partials/nav.php");
                 <span>Anotação:</span>
                 <div class="d-flex justify-content-between">
                     <?php foreach ($tags as $tag) :?>
-                    <div class="border border-light rounded-end-5 bg-success px-2 mx-1">
+                    <div class="border border-light rounded-end-5 bg-<?= cor() ?> px-2 mx-1">
                         <img src="resources/img/tag.svg" alt="">
-                        <span><?= $tag["nm_tag"] ?></span>
+                        <span class="fw-bold"><?= $tag["nm_tag"] ?></span>
                     </div>
                     <?php endforeach; ?>
                 </div>

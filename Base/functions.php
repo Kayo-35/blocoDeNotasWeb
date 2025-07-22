@@ -50,4 +50,18 @@ function redirect($path)
     header("location: {$path}");
     die();
 }
+
+//Tags Helper
+function cor() : string {
+    $cores = [
+        "danger",
+        "success",
+        "primary",
+        "secondary",
+        "warning",
+    ];
+
+    $key = array_rand($cores);
+    return $cores[$key];
+}
 ?>
