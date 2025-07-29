@@ -3,7 +3,7 @@ extract($params);
 require path("views/partials/header.php");
 require path("views/partials/nav.php");
 ?>
-<div class="d-flex justify-content-center row mt-5">
+<div class="d-flex justify-content-center row mt-5 w-100">
     <div class="
         col-md-6
         col-sm-12
