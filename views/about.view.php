@@ -6,6 +6,10 @@ require "partials/nav.php";
 
 <div class="container mt-3">
     <h1>Pagina <?= $nome ?></h1>
+    <p>
+        Olá Mundo!
+    </p>
 </div>
 
+<script src="resources/js/script.js"></script>
 <?php require "partials/footer.php"; ?>
