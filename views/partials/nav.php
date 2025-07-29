@@ -39,9 +39,9 @@
                 </li>
                 <li class="nav-item">
                     <?php if (!isset($_SESSION["user"]) ?? true): ?>
-                        <a class="nav-link <?= isUrl("/registrar/cadastrar")
+                        <a class="nav-link <?= isUrl("/registrar")
                             ? "active"
-                            : "" ?>" href="/registrar/cadastrar">Registrar-se</a>
+                            : "" ?>" href="/registrar">Registrar-se</a>
                     <?php endif; ?>
                 </li>
 

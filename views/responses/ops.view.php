@@ -12,4 +12,3 @@ require path("views/partials/header.php");
         </div>
     </div>
 </div>
-<?php require path("views/partials/footer.php"); ?>
