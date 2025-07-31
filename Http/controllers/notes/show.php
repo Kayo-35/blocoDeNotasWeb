@@ -6,7 +6,6 @@ use Base\App;
 $db = App::resolve(Database::class);
 $db->connect();
 
-session_start();
 $cod = $_GET["id"];
 
 //Tratamento de requsições GET(Acessar a página)
